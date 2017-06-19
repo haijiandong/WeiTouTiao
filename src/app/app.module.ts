@@ -1,4 +1,4 @@
-import {HttpModule} from '.4.1.2@@angular/http';
+import {HttpModule} from '@angular/http';
 import { ShopPage } from './../pages/shop/shop';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
