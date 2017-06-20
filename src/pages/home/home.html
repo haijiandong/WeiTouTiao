@@ -5,8 +5,17 @@
 </ion-header>
 
 <ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event,1)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="加载中...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
     <ion-list *ngFor="let news of posts | jsonDisplay">
-        <ion-card>
+        <ion-card (click)="getNewsInfo(news.value.newsId)">
 
             <img src="{{news.value.coverUrl}}" />
 
@@ -21,22 +30,22 @@
 
             <ion-row no-padding>
                 <ion-col>
-                    <button ion-button clear small color="danger" icon-start>
-          <ion-icon ios="ios-person-outline" md="md-person"></ion-icon>
-          {{news.value.author}}
-        </button>
+                    <ion-label ion-button clear small color="danger" icon-start>
+                        <ion-icon ios="ios-person-outline" md="md-person"></ion-icon>
+                        {{news.value.author}}
+                    </ion-label>
                 </ion-col>
                 <ion-col text-center>
-                    <button ion-button clear small color="danger" icon-start>
-          <ion-icon ios="ios-clock-outline" md="md-clock"></ion-icon>
-          {{news.value.publishTime*1000 | date:'yyyy-MM-dd HH:mm:ss'}}
-        </button>
+                    <ion-label ion-button clear small color="danger" icon-start>
+                        <ion-icon ios="ios-clock-outline" md="md-clock"></ion-icon>
+                        {{news.value.publishTime*1000 | date:'MM-dd HH:mm'}}
+                    </ion-label>
                 </ion-col>
                 <ion-col text-right>
-                    <button ion-button clear small color="danger" icon-start>
-          <ion-icon name='share-alt'></ion-icon>
-          分享
-        </button>
+                    <ion-label ion-button clear small color="danger" icon-start>
+                        <ion-icon name='share-alt'></ion-icon>
+                        分享
+                    </ion-label>
                 </ion-col>
             </ion-row>
 
