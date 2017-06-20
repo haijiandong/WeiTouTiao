@@ -10,13 +10,15 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { JsonDisplayPipe } from '../pipes/json-display/json-display';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     TabsPage,
-    ShopPage
+    ShopPage,
+    JsonDisplayPipe
   ],
   imports: [
     BrowserModule,

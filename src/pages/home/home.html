@@ -5,10 +5,41 @@
 </ion-header>
 
 <ion-content>
-    <ion-list>
-        <!--<ion-item *ngFor="let news of posts">
-             {{news}}
-        </ion-item>-->
-        {{posts}}
+    <ion-list *ngFor="let news of posts | jsonDisplay">
+        <ion-card>
+
+            <img src="http://ww1.sinaimg.cn/large/c55a7aeely1fgmt6piq25j20fg06lt8v.jpg" />
+
+            <ion-card-content>
+                <ion-card-title>
+                    {{news.value.title}}
+                </ion-card-title>
+                <p>
+                    {{news.value.description}}
+                </p>
+            </ion-card-content>
+
+            <ion-row no-padding>
+                <ion-col>
+                    <button ion-button clear small color="danger" icon-start>
+          <ion-icon ios="ios-person-outline" md="md-person"></ion-icon>
+          {{news.value.author}}
+        </button>
+                </ion-col>
+                <ion-col text-center>
+                    <button ion-button clear small color="danger" icon-start>
+          <ion-icon ios="ios-clock-outline" md="md-clock"></ion-icon>
+          {{news.value.publishTime}}
+        </button>
+                </ion-col>
+                <ion-col text-right>
+                    <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='share-alt'></ion-icon>
+          分享
+        </button>
+                </ion-col>
+            </ion-row>
+
+        </ion-card>
     </ion-list>
 </ion-content>
