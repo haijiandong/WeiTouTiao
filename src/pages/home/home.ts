@@ -11,35 +11,47 @@ import { DetailsPage } from '../details/details';
 })
 //http://16683n203x.iask.in/api/News/GetAllList?type=0&index=0
 export class HomePage {
-  posts:any;
+  posts: any;
+  //记录上滑刷新的页码数
+  num:number=1;
   constructor(public navCtrl: NavController, public http: Http) {
-     this.http.get("http://16683n203x.iask.in/api/News/GetAllList?type=0&index=0").map(res => res.json()).subscribe(data => {
-        this.posts = data;
+    this.http.get("http://16683n203x.iask.in/api/News/GetAllList?type=0&index=0").map(res => res.json()).subscribe(data => {
+      this.posts = data;
     });
   }
 
   doRefresh(refresher) {
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      //加载玩必须调用
+    this.http.get("http://16683n203x.iask.in/api/News/GetAllList?type=0&index=0").map(res => res.json()).subscribe(data => {
+      this.posts = data;
       refresher.complete();
-    }, 2000);
+    });
   }
 
-  doInfinite(infiniteScroll) {
-    console.log('Begin async operation');
+  // doInfinite(infiniteScroll) {
+  //   this.http.get("http://16683n203x.iask.in/api/News/GetAllList?type=0&index=1").map(res => res.json()).subscribe(data => {
+  //       this.posts=this.posts.concat(data);
+  //       console.log(data);
+  //   });
+  //   infiniteScroll.complete();
 
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      infiniteScroll.complete();
-    }, 500);
+  // }
+
+  doInfinite(): Promise<any> {
+    return new Promise((resolve) => {
+      this.http.get("http://16683n203x.iask.in/api/News/GetAllList?type=0&index="+this.num).map(res => res.json()).subscribe(data => {
+        this.posts = this.posts.concat(data);
+      });
+      //每一次刷新，页码数自加一
+      this.num++;
+      resolve();
+    })
   }
 
   //进入新闻详情
   getNewsInfo(id) {
     console.log(id);
-    this.navCtrl.push(DetailsPage,{
-      id:id
+    this.navCtrl.push(DetailsPage, {
+      id: id
     });
   }
 }

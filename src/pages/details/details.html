@@ -14,8 +14,9 @@
 
 
 <ion-content padding>
-    <ion-item>{{content?.title}}</ion-item>
-    <ion-item>{{content?.author}}</ion-item>
-    <ion-item>{{content?.publishTime}}</ion-item>
+    <h2>{{content?.title}}</h2>
+    <hr>
+    <p style="color:red">{{content?.author}} &emsp; {{content?.publishTime}}</p>
+    <br>
     <div [innerHTML]="content?.content"></div>
 </ion-content>

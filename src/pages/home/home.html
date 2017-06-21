@@ -38,17 +38,11 @@
                         {{news.value.publishTime*1000 | date:'MM-dd HH:mm'}}
                     </ion-label>
                 </ion-col>
-                <ion-col text-right>
-                    <ion-label ion-button clear small color="danger" icon-start>
-                        <ion-icon name='share-alt'></ion-icon>
-                        分享
-                    </ion-label>
-                </ion-col>
             </ion-row>
 
         </ion-card>
     </ion-list>
-    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">
         <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多...">
         </ion-infinite-scroll-content>
     </ion-infinite-scroll>
