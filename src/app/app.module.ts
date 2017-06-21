@@ -11,9 +11,11 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { JsonDisplayPipe } from '../pipes/json-display/json-display';
+import { DetailsPage } from '../pages/details/details';
 
 @NgModule({
   declarations: [
+    DetailsPage,
     MyApp,
     HomePage,
     TabsPage,
@@ -30,7 +32,8 @@ import { JsonDisplayPipe } from '../pipes/json-display/json-display';
     MyApp,
     HomePage,
     TabsPage,
-    ShopPage
+    ShopPage,
+    DetailsPage
   ],
   providers: [
     StatusBar,

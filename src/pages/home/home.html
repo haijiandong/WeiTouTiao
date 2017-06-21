@@ -5,14 +5,11 @@
 </ion-header>
 
 <ion-content>
-    <ion-refresher (ionRefresh)="doRefresh($event,1)">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="加载中...">
         </ion-refresher-content>
     </ion-refresher>
-    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多...">
-        </ion-infinite-scroll-content>
-    </ion-infinite-scroll>
+
 
     <ion-list *ngFor="let news of posts | jsonDisplay">
         <ion-card (click)="getNewsInfo(news.value.newsId)">
@@ -51,4 +48,8 @@
 
         </ion-card>
     </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>
