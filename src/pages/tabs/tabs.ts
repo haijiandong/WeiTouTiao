@@ -10,13 +10,15 @@ export class TabsPage {
   temp: any;
   tab1Root = HomePage;
   index: any = {
-    index: 0
+    type: 0
   };
   constructor(private superTabsCtrl: SuperTabsController, public navCtrl: NavController) {
     this.superTabsCtrl.showToolbar(false);
   }
   onTabSelect(ev: any) {
+    this.tab1Root=HomePage;
     console.log('Tab selected', 'Index: ' + ev.index, 'Unique ID: ' + ev.id);
-    this.index.index=ev.index;
+    this.index.type=ev.index;
+    console.log(this.index);
   }
 }
