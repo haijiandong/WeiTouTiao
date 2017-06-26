@@ -1,4 +1,9 @@
-<ion-tabs>
+<!--<ion-tabs>
     <ion-tab [root]="tab1Root" tabTitle="头条" tabIcon="ios-book"></ion-tab>
     <ion-tab [root]="tab2Root" tabTitle="淘品" tabIcon="md-cart"></ion-tab>
-</ion-tabs>
+</ion-tabs>-->
+<super-tabs selectedTabIndex="0" toolbarColor="light" toolbarBackground="dark" indicatorColor="light" badgeColor="light" [config]="{ sideMenu: 'left' }" (tabSelect)="onTabSelect($event)">
+  <super-tab [root]="tab1Root" [rootParams]="index"></super-tab>
+  <super-tab [root]="tab1Root" [rootParams]="index"></super-tab>
+  <super-tab [root]="tab1Root" [rootParams]="index"></super-tab>
+</super-tabs>

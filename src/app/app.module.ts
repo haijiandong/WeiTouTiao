@@ -14,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { JsonDisplayPipe } from '../pipes/json-display/json-display';
 import { DetailsPage } from '../pages/details/details';
 import { WelcomePage } from '../pages/welcome/welcome';
+import { SuperTabsModule } from 'ionic2-super-tabs';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { WelcomePage } from '../pages/welcome/welcome';
   imports: [
     BrowserModule,
     HttpModule,
+    SuperTabsModule.forRoot(),
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp, {
       tabsHideOnSubPages: "true", // nav在push的时候隐藏tabs  
