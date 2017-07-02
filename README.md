@@ -1,4 +1,4 @@
-这是一个使用[Ionic](http://ionicframework.com/docs/) 框架开发的简单App示例项目.
+这是一个使用[Ionic](http://ionicframework.com/docs/) 框架+Angular4+TypeScript开发的简单App示例项目.
 
 ### 使用 Ionic CLI:
 
