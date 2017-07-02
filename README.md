@@ -1,26 +1,17 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+这是一个使用[Ionic](http://ionicframework.com/docs/) 框架开发的简单App示例项目.
 
-## How to use this template
-
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
-
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
-
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+### 使用 Ionic CLI:
 
 ```bash
 $ sudo npm install -g ionic cordova
-$ ionic start myTabs tabs
+$ ionic start
 ```
-
-Then, to run it, cd into `myTabs` and run:
-
+### 编译
 ```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
+$ ionic cordova platform add android
+$ ionic cordova build android
 ```
 
-Substitute ios for android if not on a Mac.
+目前只有安卓版本，在此[下载试用](https://pan.baidu.com/s/1gfpEApd)
 
+后台Api项目使用ASP.NET Core Web Api编写的，从搜狗微信爬取的数据，经过xpath解析后持久化到数据库中，供app调用，api项目的地址[在此](https://github.com/haijiandong/WxSpider)
