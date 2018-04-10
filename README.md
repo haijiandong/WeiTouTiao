@@ -16,6 +16,8 @@ $ ionic cordova build android
 
 
 后台Api项目使用ASP.NET Core Web Api编写的，从搜狗微信爬取的数据，经过xpath解析后持久化到数据库中，供app调用，api项目的地址[在此](https://github.com/haijiandong/WxSpider)
+
+
 [一个很low的go版本api](https://github.com/haijiandong/go_wxspider)
 
 相关的几篇笔记：
